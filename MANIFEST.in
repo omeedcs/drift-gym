@@ -1,0 +1,21 @@
+# Include documentation and license files
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# Include config and scenario files
+recursive-include drift_gym/config *.yaml *.yml
+recursive-include drift_gym/scenarios *.yaml *.yml
+
+# Include documentation
+recursive-include docs *.md *.rst *.txt
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store
+recursive-exclude * .git*
+recursive-exclude tests *
+recursive-exclude experiments *

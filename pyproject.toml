@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drift-gym"
+version = "0.1.0"
+description = "Gymnasium environment for autonomous vehicle drifting research with F1/10 dynamics"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Omeed Tehrani", email = "omeed@cs.utexas.edu"}
+]
+keywords = ["reinforcement-learning", "gymnasium", "autonomous-vehicles", "drifting", "robotics", "f1tenth"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Robotics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "gymnasium>=0.29.0",
+    "numpy>=1.21.0,<2.0.0",
+    "pygame>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+    "isort>=5.10.0",
+]
+rl = [
+    "stable-baselines3>=2.0.0",
+    "torch>=2.0.0",
+]
+vis = [
+    "matplotlib>=3.5.0",
+    "seaborn>=0.12.0",
+]
+all = [
+    "stable-baselines3>=2.0.0",
+    "torch>=2.0.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.12.0",
+    "pandas>=1.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/drift-gym-research"
+Documentation = "https://github.com/yourusername/drift-gym-research/tree/main/docs"
+Repository = "https://github.com/yourusername/drift-gym-research"
+"Bug Tracker" = "https://github.com/yourusername/drift-gym-research/issues"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
